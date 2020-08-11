@@ -1,0 +1,128 @@
+{
+  "name": "task-tracker",
+  "displayName": "Task Tracker",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.47.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:task-tracker",
+    "onCommand:task-tracker.addTask",
+    "onCommand:task-tracker.deleteTask",
+    "onCommand:task-tracker.toggleTask"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "task-tracker.addTask",
+        "title": "Add Task",
+        "category": "Task Tracker",
+        "icon": {
+          "light": "media/light/add.png",
+          "dark": "media/dark/add.png"
+        }
+      },
+      {
+        "command": "task-tracker.editTask",
+        "title": "Edit",
+        "category": "Task Tracker",
+        "icon": {
+          "light": "media/light/pencil.png",
+          "dark": "media/dark/pencil.png"
+        }
+      },
+      {
+        "command": "task-tracker.deleteTask",
+        "title": "Delete",
+        "category": "Task Tracker",
+        "icon": {
+          "light": "media/light/trash.png",
+          "dark": "media/dark/trash.png"
+        }
+      }
+    ],
+    "configuration": {
+      "title": "Task Tracker",
+      "properties": {
+        "task-tracker.useGlobalTasks": {
+          "type": "boolean",
+          "default": false,
+          "description": "Store tasks globally if true. Otherwise in workspace."
+        }
+      }
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "task-tracker.editTask",
+          "when": "false"
+        },
+        {
+          "command": "task-tracker.deleteTask",
+          "when": "false"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "task-tracker.addTask",
+          "when": "true",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "task-tracker.editTask",
+          "group": "inline"
+        },
+        {
+          "command": "task-tracker.deleteTask",
+          "group": "inline"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "task-tracker",
+          "name": "Task Tracker"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "task-tracker",
+        "contents": "No tasks available.\n[Add Task](command:task-tracker.addTask)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "@types/vscode": "^1.47.0",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.1.2",
+    "typescript": "^3.8.3",
+    "vscode-test": "^1.3.0"
+  },
+  "dependencies": {
+    "@types/luxon": "^1.24.3",
+    "luxon": "^1.24.1"
+  }
+}
