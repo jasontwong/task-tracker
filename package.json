@@ -4,7 +4,7 @@
   "description": "Tracking tasks",
   "repository": "https://github.com/jasontwong/task-tracker",
   "publisher": "jasontwong",
-  "version": "0.3.0",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.47.0"
   },
