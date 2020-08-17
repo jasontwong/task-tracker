@@ -47,16 +47,6 @@
         }
       }
     ],
-    "configuration": {
-      "title": "Task Tracker",
-      "properties": {
-        "task-tracker.useGlobalTasks": {
-          "type": "boolean",
-          "default": false,
-          "description": "Store tasks globally if true. Otherwise in workspace."
-        }
-      }
-    },
     "menus": {
       "commandPalette": [
         {
