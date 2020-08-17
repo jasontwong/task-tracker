@@ -2,8 +2,9 @@
   "name": "task-tracker",
   "displayName": "Task Tracker",
   "description": "Tracking tasks",
+  "repository": "https://github.com/jasontwong/task-tracker",
   "publisher": "jasontwong",
-  "version": "0.3.0",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.47.0"
   },
